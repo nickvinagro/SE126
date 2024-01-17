@@ -1,0 +1,1 @@
+# W2D2 - Text File Opening Review + 1D Lists

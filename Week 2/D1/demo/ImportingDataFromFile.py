@@ -12,4 +12,4 @@ with open("Week 2/example.csv") as csvfile:
 
 
     for rec in file:
-        print(rec)
+        print(average)
