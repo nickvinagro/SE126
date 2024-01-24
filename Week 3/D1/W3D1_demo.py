@@ -10,15 +10,15 @@ import csv
 # initializing neccessary variables, total records and all 1D lists for each column in the working CSV file
 records = 0
 
-device = []
-brand = []
-cpu = []
-ram = []
-first_disk = []
-no_hdd = []
-second_disk = []
-os = []
-yr = []
+comp_type_list = []
+comp_brand_list = []
+comp_cpu_list = []
+comp_ram_list = []
+comp_first_disk_list = []
+comp_no_hdd_list = []
+comp_second_disk_list = []
+comp_os_list = []
+comp_year_list = []
 
 # opening CSV file that is being used lab3a.csv in D1 directory and reading it as "file"
 with open("Week 3/D1/lab3a.csv") as csvf:
@@ -51,7 +51,7 @@ with open("Week 3/D1/lab3a.csv") as csvf:
         # declaring static variables in the records. These are always in the same spot in the file
         comp_cpu = rec[2]               # CPU
         comp_ram = rec[3]               # amount of RAM
-        comp_first_hdd = rec[4]         # storage size of the 1st HDD
+        comp_first_hdd = rec[4]             # storage size of the 1st HDD
         comp_num_of_hdd = int(rec[5])   # number of hard drives
 
         # if # of HDD's is 1 then there is no 2nd HDD and declaring the computer OS & Year, setting the 2nd HDD value to a blank value
@@ -72,15 +72,15 @@ with open("Week 3/D1/lab3a.csv") as csvf:
             comp_year = "*ERROR*"
 
         # appending all the values declared above to there designated lists
-        device.append(comp_type) 
-        brand.append(comp_brand)
-        cpu.append(comp_cpu)
-        ram.append(comp_ram)
-        first_disk.append(comp_first_hdd)
-        no_hdd.append(comp_num_of_hdd)
-        second_disk.append(comp_second_hdd)
-        os.append(comp_os)
-        yr.append(comp_year)
+        comp_type_list.append(comp_type) 
+        comp_brand_list.append(comp_brand)
+        comp_cpu_list.append(comp_cpu)
+        comp_ram_list.append(comp_ram)
+        comp_first_disk_list.append(comp_first_hdd)
+        comp_no_hdd_list.append(comp_num_of_hdd)
+        comp_second_disk_list.append(comp_second_hdd)
+        comp_os_list.append(comp_os)
+        comp_year_list.append(comp_year)
 
 # printing the total # of records
 print("RECORDS: ", records)
@@ -91,7 +91,7 @@ print("\n\n\nPRINTING FROM LISTS----------------")
 # "records" has the number of values in each list.
 # printing each value with it's index
 for index in range(0, records):
-     print(f"INDEX: {index} \t {device[index]:10} \t {brand[index]:10} \t {cpu[index]:3} \t {ram[index]:2} \t {first_disk[index]:7} \t {no_hdd[index]:7} \t {second_disk[index]:7} \t {os[index]:4} \t {yr[index]}")
+     print(f"INDEX: {index} \t {comp_type_list[index]:10} \t {comp_brand_list[index]:10} \t {comp_cpu_list[index]:3} \t {comp_ram_list[index]:2} \t {comp_first_disk_list[index]:7} \t {comp_no_hdd_list[index]:7} \t {comp_second_disk_list[index]:7} \t {comp_os_list[index]:4} \t {comp_year_list[index]}")
 
 
 # START OF IN WEEK #3 - IN CLASS LAB | ASSIGNMENT
@@ -109,13 +109,13 @@ for index in range(0, records):
 
     # if the device is a Desktop and it's older than 2016, it needs to be replaced. 
     #Incrementing the old desktop count & adding the cost for a new one
-    if device[index] == "Desktop" and int(yr[index]) <= 16:
+    if comp_type_list[index] == "Desktop" and int(comp_year_list[index]) <= 16:
         old_desktop_count += 1
         total_replacement_cost_desktops += 2000
     
     # if the device is a Laptop and it's older than 2016, it needs to be replaced. 
     # Incrementing the old laptop count & adding the cost for a new one
-    if device[index] == "Laptop" and int(yr[index]) <= 16:
+    if comp_type_list[index] == "Laptop" and int(comp_year_list[index]) <= 16:
         old_laptop_count += 1
         total_replacement_cost_laptops += 1500
     
