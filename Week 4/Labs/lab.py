@@ -7,7 +7,7 @@
 # importing neccessary modules, CSV
 import csv
 
-# initializing neccessary lists & variables, 1D lists for each column in the working CSV file
+# initializing neccessary litss & variables, 1D lists for each column in the working CSV file
 
 fname = [] # Column 1: First names
 lname = [] # Column 2: Last names
